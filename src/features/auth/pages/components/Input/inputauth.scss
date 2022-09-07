@@ -1,0 +1,25 @@
+@use '../../../../../scss/' as *;
+
+.label_auth {
+    margin-top: 0.6rem;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: black;
+    @include tablet {
+        font-size: 1.2rem;
+    }
+    @include mobile {
+        font-size: 1.5rem;
+    }
+}
+
+.input_auth {
+    border: none;
+    border-bottom: 1px solid black;
+    padding-bottom: 0.25rem;
+    outline: none;
+    font-size: 1.1rem;
+    @include mobile {
+        font-size: 1.4rem;
+    }
+}

@@ -1,0 +1,14 @@
+@use '../../../../../scss/' as *;
+
+.header-login {
+    font-size: 2rem;
+    color: $main-color;
+    font-weight: 700;
+    text-align: center;
+    @include tablet {
+        font-size: 2rem;
+    }
+    @include mobile {
+        font-size: 2.2rem;
+    }
+}

@@ -1,0 +1,282 @@
+@use '../../scss/' as *;
+
+.product {
+    @include flex(flex-start, flex-start);
+
+    @include mobile {
+        flex-direction: column;
+    }
+
+    &__images {
+        @include flex(flex-start, flex-start);
+        width: 60%;
+        flex-wrap: wrap;
+
+        @include tablet {
+            width: 80%;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
+
+        &__list {
+            width: 20%;
+
+            &__item {
+                cursor: pointer;
+            }
+        }
+
+        &__main {
+            flex-grow: 1;
+            padding-top: 100%;
+            position: relative;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                height: 100%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+
+    &__info {
+        flex-grow: 1;
+        position: sticky;
+        top: $header-shrink-height;
+        padding-top: 2rem;
+
+        @include mobile {
+            position: relative;
+            top: unset;
+            width: 100%;
+            padding: 2rem 2rem 0;
+        }
+
+        &__title {
+            font-size: 2.5rem;
+            font-weight: normal;
+            @include mobile {
+                @include flex(center, center);
+            }
+        }
+
+        &__item {
+            margin-top: 2rem;
+
+            &__price {
+                color: $main-color;
+                font-size: 2rem;
+                font-weight: 600;
+                @include mobile {
+                    @include flex(center, center);
+                }
+            }
+
+            &__title {
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+
+            &__list {
+                @include flex(center, flex-start);
+
+                @include mobile {
+                    @include flex(center, center);
+                }
+
+                &__item {
+                    @include flex(center, center);
+
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    border: 2px solid $txt-second-color;
+                    cursor: pointer;
+                    margin-right: 1rem;
+
+                    @include mobile {
+                        width: 40px;
+                        height: 40px;
+                    }
+
+                    &.active {
+                        border-color: $main-color;
+                        border-width: 4px;
+
+                        .circle {
+                            width: 34px;
+                            height: 34px;
+                            border-radius: 50%;
+
+                            @include mobile {
+                                width: 26px;
+                                height: 26px;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        border-color: $main-color;
+                    }
+
+                    .circle {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+
+                        @include mobile {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+
+                    &__size {
+                        font-size: 1.5rem;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+
+            &__quantity {
+                @include flex(flex-start, flex-start);
+
+                @include mobile {
+                    @include flex(center, center);
+                }
+
+                &__btn {
+                    @include flex(center, center);
+                    width: 30px;
+                    height: 30px;
+                    border: 2px solid $txt-second-color;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                }
+
+                &__input {
+                    @include flex(center, center);
+                    height: 30px;
+                    width: 90px;
+                    font-size: 1.5rem;
+                    border-top: 2px solid $txt-second-color;
+                    border-bottom: 2px solid $txt-second-color;
+                }
+            }
+
+            button {
+                margin-right: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .btn {
+            @include mobile {
+                @include flex(center, center);
+                margin-top: 2.5rem;
+            }
+        }
+    }
+}
+
+.product-desc {
+    width: 100%;
+    padding: 2rem 2rem 3rem;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    transition: height 0.3s ease;
+
+    @include mobile {
+        display: none;
+    }
+
+    &.mobile {
+        display: none;
+
+        @include mobile {
+            display: block;
+        }
+    }
+
+    &.expand {
+        height: max-content;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 2rem 0;
+    }
+
+    &__content {
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+        text-align: justify;
+    }
+
+    &__toggle {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.product-view__modal {
+    @include flex(center, center);
+
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color: black, $alpha: 0.4);
+    opacity: 0;
+    visibility: hidden;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__content {
+        position: relative;
+        margin: auto;
+        padding: 2rem 0 2rem 2rem;
+        width: 80%;
+        height: 90vh;
+        background-color: $main-bg;
+        opacity: 0;
+        transform: translateY(-250px);
+        transition: transform 0.3s ease;
+
+        &__item {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            overscroll-behavior-y: contain;
+
+            .product__info {
+                top: 0;
+                padding-top: 1rem;
+            }
+        }
+
+        &__close {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    &.active &__content {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

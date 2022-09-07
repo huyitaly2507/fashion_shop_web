@@ -1,0 +1,58 @@
+@use '../../scss/' as *;
+
+.cart {
+    @include flex(flex-start, flex-start);
+
+    @include tablet {
+        flex-wrap: wrap;
+    }
+
+    &__info {
+        // width: 40%;
+        margin-right: 30px;
+        margin-top: 30px;
+        padding: 20px;
+        box-shadow: $box-shadow;
+        position: sticky;
+        top: calc(#{$header-shrink-height} + 20px);
+
+        @include tablet {
+            position: unset;
+            margin-top: 0;
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 30px;
+            background-color: $main-bg;
+        }
+
+        &__txt {
+            & > * {
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 1.25rem;
+            }
+
+            &__price {
+                @include flex(center, space-between);
+                padding: 10px 0;
+                font-size: 1.25rem;
+
+                span:nth-child(2) {
+                    font-size: 2rem;
+                    color: $main-color;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        &__btn > * {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__list {
+        flex-grow: 1;
+    }
+}

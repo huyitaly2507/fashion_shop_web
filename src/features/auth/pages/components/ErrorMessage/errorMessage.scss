@@ -1,0 +1,30 @@
+@use '../../../../../scss/' as *;
+
+.err-msg {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    // margin-bottom: -0.5rem;
+    background-color: rgb(255, 242, 239);
+    border-radius: 6px;
+}
+
+.err-msg-icon {
+    margin-right: 10px;
+    color: red;
+    font-size: 1.2rem;
+    @include mobile {
+        font-size: 1.8rem;
+    }
+}
+
+.err-msg-title {
+    position: relative;
+    top: 1px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: black;
+    @include mobile {
+        font-size: 1.4rem;
+    }
+}

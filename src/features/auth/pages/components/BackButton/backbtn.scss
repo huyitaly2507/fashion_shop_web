@@ -1,0 +1,22 @@
+@use '../../../../../scss/' as *;
+
+.back_btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    font-size: 1.4rem;
+    color: rgb(122, 120, 120);
+    cursor: pointer;
+    @include tablet {
+        font-size: 2rem;
+    }
+    @include mobile {
+        font-size: 2.2rem;
+    }
+
+    &:hover {
+        color: black;
+    }
+}

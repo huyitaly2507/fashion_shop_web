@@ -1,0 +1,35 @@
+@use '../../../../../scss/' as *;
+
+.footer-login {
+    text-align: center;
+}
+
+.navigation-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #726f6f;
+    @include tablet {
+        font-size: 1rem;
+    }
+    @include mobile {
+        font-size: 1.2rem;
+    }
+}
+
+.navigation-btn {
+    margin-left: 6px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: $main-color;
+    @include tablet {
+        font-size: 1.2rem;
+    }
+    @include mobile {
+        font-size: 1.5rem;
+    }
+
+    &:hover {
+        color: rgb(119 119 252);
+    }
+}
